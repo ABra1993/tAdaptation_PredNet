@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from model_train_Kirubeswaran2023_utils_flow import warp, clip_flow, normalize_flow
+from model_train_utils_flow import warp, clip_flow, normalize_flow
 
-import pdb
+'''' Code adapted from # code adapted from https://github.com/eijwat/prednet_in_pytorch'''
 
 class CorrWise(nn.Module):
     def __init__(self, 
@@ -96,13 +96,13 @@ class CorrWise(nn.Module):
         super(CorrWise, self).__init__()
 
         if flow_method == 'RAFT':
-            from model_train_Kirubeswaran2023_utils_flow import RAFT
+            from model_train_utils_flow import RAFT
             self.flow_method = RAFT()
         elif flow_method == 'PWC':
-            from model_train_Kirubeswaran2023_utils_flow import PWCNet
+            from model_train_utils_flow import PWCNet
             self.flow_method = PWCNet()
         elif flow_method == 'FBFlow':
-            from model_train_Kirubeswaran2023_utils_flow import FBFlow
+            from model_train_utils_flow import FBFlow
             self.flow_method = FBFlow()
         else:
             self.flow_method = flow_method

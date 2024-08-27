@@ -15,7 +15,7 @@ from keras import backend as K
 from keras.models import Model, model_from_json
 from keras.layers import Input, Dense, Flatten
 
-from prednet_Lotter2017 import PredNet
+from prednet_Keras import PredNet
 
 dataset = 'set1'
 

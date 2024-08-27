@@ -6,7 +6,7 @@ import tensorflow as tf
 from keras import backend as K
 from keras.models import Model, model_from_json
 from keras.layers import Input
-from prednet_Lotter2017 import PredNet
+from prednet_Keras import PredNet
 
 # set root
 root            = '/home/amber/Documents/prednet_Brands2024/'

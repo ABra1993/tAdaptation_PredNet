@@ -9,7 +9,7 @@ from torch.optim import lr_scheduler
 import torchvision.utils as vutils
 from torch.utils.tensorboard import SummaryWriter
 from torchviz import make_dot
-import prednet_Kirubeswaran2023
+import prednet_pyTorch
 import argparse
 import datetime
 from tqdm import tqdm
@@ -112,7 +112,7 @@ def main():
         for iInit in range(init):
 
             # initiate model
-            net = prednet_Kirubeswaran2023.PredNet(channels, device=device).to(device)
+            net = prednet_pyTorch.PredNet(channels, device=device).to(device)
             net.eval()
 
             # load weights

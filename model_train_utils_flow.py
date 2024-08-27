@@ -2,7 +2,9 @@
 Utilities for flow prediction, including:
     torch modules for pwcnet, raft, and cv2 flow
     image warping
-    flow clipping
+    flow clipping  
+    
+    code adapted from https://github.com/eijwat/prednet_in_pytorch
 '''
 import os
 import pathlib

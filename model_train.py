@@ -25,11 +25,11 @@ from torchviz import make_dot
 
 # other scripts
 # from model_train_Kirubeswaran2023_utils_dataset import ImageListDataset
-from model_train_Kirubeswaran2023_utils_corr_wise import CorrWise
+from model_train_utils_corr_wise import CorrWise
 
 from torch.utils.data import Dataset, DataLoader
-from model_train_Kirubeswaran2023_utils_dataloader import VideoDataset
-from prednet_Kirubeswaran2023 import *
+from model_train_utils_dataloader import VideoDataset
+from prednet_pyTorch import *
 
 parser = argparse.ArgumentParser(description='PredNet')
 parser.add_argument('--images', '-i', default='data/train_list.txt', help='Path to image list file')

@@ -4,6 +4,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 from convlstmcell import ConvLSTMCell
 
+'''' Code adapted from # code adapted from https://github.com/eijwat/prednet_in_pytorch'''
 
 class SatLU(nn.Module):
     def __init__(self, lower=0, upper=1, inplace=False):
