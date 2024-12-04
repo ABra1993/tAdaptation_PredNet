@@ -11,12 +11,12 @@ input_shape = [128, 160, 3]
 dataset         = 'set1'
 
 # select directory to save stimuli
-root = '/home/amber/OneDrive/code/prednet_Brands2024/'
+root = '/prednet_Brands2024_git/'
 if input_shape[0] == 120:
-    root_stim   = '/home/amber/Documents/prednet_Brands2024/data/stimuli/120_160/' + dataset + '/'
+    root_stim   = '/prednet_Brands2024_git/data/stimuli/120_160/' + dataset + '/'
     root_vis    = root + 'visualization/stimuli/120_160/' + dataset + '/'
 elif input_shape[0] == 128:
-    root_stim   = '/home/amber/Documents/prednet_Brands2024/data/stimuli/128_160/' + dataset + '/'
+    root_stim   = '/prednet_Brands2024_git/data/stimuli/128_160/' + dataset + '/'
     root_vis    = root + '/visualization/stimuli/128_160/' + dataset + '/'
 
 # categories

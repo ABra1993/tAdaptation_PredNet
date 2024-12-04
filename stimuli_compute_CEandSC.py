@@ -10,13 +10,13 @@ import scipy
 # input shape for PredNet
 input_shape = [128, 160, 3]
 if input_shape[0] == 120:
-    data_save = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/'
+    data_save = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
 elif input_shape[0] == 128:
-    data_save = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/'
+    data_save = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
 
 # select directory to save stimuli
-root            = '/home/amber/OneDrive/code/prednet_Brands2024/'
-config_path     = '/home/amber/OneDrive/code/prednet_Brands2024/lgnpy/lgnpy/CEandSC/default_config.yml'
+root            = '/prednet_Brands2024_git/'
+config_path     = '/prednet_Brands2024_git/lgnpy/lgnpy/CEandSC/default_config.yml'
 
 # categories
 cats            = ['bodies', 'buildings', 'faces', 'objects', 'scenes', 'scrambled']

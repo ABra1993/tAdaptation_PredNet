@@ -69,8 +69,8 @@ for fps in fpss:
 
         print(dataset)
 
-        input_file = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
-        output_file = '/home/amber/OneDrive/datasets/train/' + dataset + '_fps' + str(fps) + '.mp4'
+        input_file = '/datasets/train/' + dataset + '.mp4'
+        output_file = '/datasets/train/' + dataset + '_fps' + str(fps) + '.mp4'
 
         # Define target width and height for resizing
         target_width = 160

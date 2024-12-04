@@ -11,8 +11,8 @@ from sklearn.utils import resample
 import seaborn as sns
 
 # select directory to save stimuli
-root            = '/home/amber/OneDrive/code/prednet_Brands2024/'
-data_save       = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/'
+root            = '/prednet_Brands2024_git/'
+data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
 
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']

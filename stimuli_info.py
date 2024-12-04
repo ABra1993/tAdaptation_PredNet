@@ -10,7 +10,7 @@ for dataset in datasets:
     print(30*'-')
 
     # import file
-    input_file = '/home/amber/Documents/organize_stimuli/datasets/train/' + dataset + '.mp4'
+    input_file = '/datasets/train/' + dataset + '.mp4'
     cap = cv2.VideoCapture(input_file)
 
     # count the number of frames 

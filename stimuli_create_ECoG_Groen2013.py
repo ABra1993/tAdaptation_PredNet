@@ -9,10 +9,10 @@ import os.path as path
 input_shape = [128, 160, 3]
 
 # select directory to save stimuli
-root            = '/home/amber/OneDrive/code/prednet_Brands2024'
-root_stim       = '/home/amber/OneDrive/datasets/Groen2013/'
-root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/stimuli/Groen2013/'
-root_data       = '/home/amber/Documents/prednet_Brands2024/data/stimuli/Groen2013/'
+root            = '/prednet_Brands2024_git'
+root_stim       = '/datasets/Groen2013/'
+root_vis        = '/prednet_Brands2024_git/visualization/stimuli/Groen2013/'
+root_data       = '/prednet_Brands2024_git/data/stimuli/Groen2013/'
 
 # plot stimuli
 compute_onepulse                        = True

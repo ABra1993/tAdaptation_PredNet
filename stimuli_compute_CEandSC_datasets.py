@@ -10,9 +10,9 @@ import scipy
 from sklearn.utils import resample
 
 # select directory to save stimuli
-root            = '/home/amber/OneDrive/code/prednet_Brands2024/'
-config_path     = '/home/amber/OneDrive/code/prednet_Brands2024/lgnpy/lgnpy/CEandSC/default_config.yml'
-data_save       = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/'
+root            = '/prednet_Brands2024_git/'
+config_path     = '/prednet_Brands2024_git/lgnpy/lgnpy/CEandSC/default_config.yml'
+data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
 
 # set dataset
 # datasets = ['KITTI', 'WT_AMS', 'WT_WL']

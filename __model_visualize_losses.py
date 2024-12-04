@@ -29,8 +29,8 @@ def subsample(data, sample_size):
     return downsampled_sequence
 
 # set root
-root            = '/home/amber/OneDrive/code/prednet_Brands2024/'
-data_save       = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' # for plotting cross-correlation
+root            = '/prednet_Brands2024_git/'
+data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/' # for plotting cross-correlation
 
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']

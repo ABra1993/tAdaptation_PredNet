@@ -27,12 +27,12 @@ training_set = 'WT_WL'
 
 # set directory's
 if model == 'Lotter2017':
-    root_data       = '/home/amber/Documents/prednet_Brands2024/data/model/Lotter2017/'
-    root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Lotter2017/onepulse/'
+    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/'
+    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/onepulse/'
     init                = 1
 elif model == 'Kirubeswaran2023':
-    root_data       = '/home/amber/Documents/prednet_Brands2024/data/model/Kirubeswaran2023/datasets/' + training_set + '/'
-    root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/' + training_set + '/'
+    root_data       = '/prednet_Brands2024_git/data/model/Kirubeswaran2023/datasets/' + training_set + '/'
+    root_vis        = '/prednet_Brands2024_git/visualization/model/Kirubeswaran2023/datasets/' + training_set + '/'
     init                = 5
 
 # set trained or untrained

@@ -19,8 +19,8 @@ model = 'Lotter2017'
 
 # set directory's
 if model == 'Lotter2017':
-    root_data       = '/home/amber/Documents/prednet_Brands2024/data/model/Lotter2017/'
-    root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Lotter2017/twopulse/'
+    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/'
+    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/twopulse/'
 
 # set training data
 if model == 'Lotter2017':

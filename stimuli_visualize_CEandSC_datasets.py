@@ -19,7 +19,7 @@ color               = ['#F6C141', '#4EB265', '#5289C7', '#DC050C']
 # import
 CEandSC_values = np.zeros((len(datasets), n_img, 2))
 for iD, dataset in enumerate(datasets):
-    temp = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + dataset + '.npy')
+    temp = np.load('/prednet_Brands2024_git/data/stimuli/img_statistics/' + dataset + '.npy')
     CEandSC_values[iD, :, :] = temp[:n_img, :]
 
 # initiate figure

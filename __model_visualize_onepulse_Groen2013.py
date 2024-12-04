@@ -17,11 +17,11 @@ model = 'Lotter2017'
 
 # set directory's
 if model == 'Lotter2017':
-    root_data       = '/home/amber/Documents/prednet_Brands2024/data/model/Lotter2017/Groen2013/'
-    root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Lotter2017/onepulse_Groen2013/'
+    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/Groen2013/'
+    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/onepulse_Groen2013/'
 elif model == 'Kirubeswaran2023':
-    root_data       = '/home/amber/Documents/prednet_Brands2024/data/model/Kirubeswaran2023/'
-    root_vis        = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/onepulse/'
+    root_data       = '/prednet_Brands2024_git/data/model/Kirubeswaran2023/'
+    root_vis        = '/prednet_Brands2024_git/visualization/model/Kirubeswaran2023/onepulse/'
 
 # set training data
 if model == 'Lotter2017':

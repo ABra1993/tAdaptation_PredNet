@@ -12,7 +12,7 @@ def getImage(path):
     return OffsetImage(plt.imread(path), zoom=.05, alpha = 1)
 
 # set root
-root        = '/home/amber/OneDrive/code/prednet_Brands/' 
+root        = '/prednet_Brands2024_git/' 
 
 # stimulus dataset
 dataset_stim = ['set1', 'set2']

@@ -12,18 +12,18 @@ def getImage(path):
     return OffsetImage(plt.imread(path), zoom=.01, alpha = 1)
 
 # set root
-root        = '/home/amber/OneDrive/code/prednet_Brands/' 
+root        = '/prednet_Brands2024_git/' 
 
 # number of images
 n_img = 1600
 
 # set directory's
-root            = '/home/amber/OneDrive/code/prednet_Brands2024'
-root_data       = '/home/amber/OneDrive/datasets/Groen2013/'
+root            = 'prednet_Brands2024_git'
+root_data       = 'datasets/Groen2013/'
 
 # import CE and SC values
-CE = np.loadtxt('/home/amber/OneDrive/datasets/Groen2013/model_CE.txt', delimiter=',')
-SC = np.loadtxt('/home/amber/OneDrive/datasets/Groen2013/model_SC.txt', delimiter=',')
+CE = np.loadtxt('datasets/Groen2013/model_CE.txt', delimiter=',')
+SC = np.loadtxt('datasets/Groen2013/model_SC.txt', delimiter=',')
 
 # create pandas dataframe
 df = pd.DataFrame(columns=['img', 'CE', 'SC'])

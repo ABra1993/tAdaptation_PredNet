@@ -13,10 +13,10 @@ from __model_visualize_onepulse_datasets_utils import *
 training_sets = ['random', 'KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']
 
 # set root
-root                = '/home/amber/OneDrive/code/prednet_Brands/' 
+root                = '/prednet_Brands_git/' 
 
-root_data           = '/home/amber/Documents/prednet_Brands2024/data/model/Kirubeswaran2023/datasets/analyse_dataset/'
-root_vis            = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/analyse_dataset/'
+root_data           = 'prednet_Brands2024_git/data/model/Kirubeswaran2023/datasets/analyse_dataset/'
+root_vis            = 'prednet_Brands2024_git/visualization/model/Kirubeswaran2023/datasets/analyse_dataset/'
 
 # select model
 model = 'Kirubeswaran2023'

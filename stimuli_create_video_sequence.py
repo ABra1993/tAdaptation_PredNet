@@ -19,9 +19,9 @@ c = 3
 dataset         = 'WT_WL'
 
 # select directory to save stimuli
-root = '/home/amber/OneDrive/code/prednet_Brands2024/'
-root_stim   = '/home/amber/Documents/prednet_Brands2024/data/stimuli/128_160/'
-root_vis    = root + '/visualization/stimuli/128_160/'
+root        = '/prednet_Brands2024_git/'
+root_stim   = '/prednet_Brands2024_git/data/stimuli/128_160/'
+root_vis    = '/prednet_Brands2024_git/visualization/stimuli/128_160/'
 
 # open video
 video_path = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'

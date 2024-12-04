@@ -6,8 +6,8 @@ import os
 import matplotlib.pyplot as plt
 
 # Define the path to your HDF5 file and the output MP4 file
-hdf5_file_path = '/home/amber/OneDrive/code/prednet_Lotter2017/kitti_data/X_train.hkl'
-output_mp4_file_path = '/home/amber/OneDrive/datasets/KITTI.avi'  # Using .avi extension with XVID codec
+hdf5_file_path = 'prednet_Lotter2017/kitti_data/X_train.hkl'
+output_mp4_file_path = '/datasets/KITTI.avi'  # Using .avi extension with XVID codec
 
 # Verify that the output path is not empty and is writable
 if not output_mp4_file_path:

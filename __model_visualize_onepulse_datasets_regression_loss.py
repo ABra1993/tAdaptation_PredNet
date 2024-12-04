@@ -15,10 +15,10 @@ training_sets = ['WT_VEN_Lnull', 'WT_VEN_Lall']
 training_sets = ['WT_WL_Lnull', 'WT_WL_Lall']
 
 # set root
-root                = '/home/amber/OneDrive/code/prednet_Brands/' 
+root                = '/prednet_Brands2024_git/' 
 
-root_data           = '/home/amber/Documents/prednet_Brands2024/data/model/Kirubeswaran2023/datasets/analyse_loss/'
-root_vis            = '/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/analyse_loss/'
+root_data           = '/prednet_Brands2024_git/data/model/Kirubeswaran2023/datasets/analyse_loss/'
+root_vis            = '/prednet_Brands2024_git/visualization/model/Kirubeswaran2023/datasets/analyse_loss/'
 
 # select model
 model = 'Kirubeswaran2023'

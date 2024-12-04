@@ -20,7 +20,7 @@ training_sets = ['KITTI_Lnull', 'KITTI_Lall']
 # training_sets = ['WT_WL_Lnull', 'WT_WL_Lall']
 
 # set root
-root                = '/home/amber/OneDrive/code/prednet_Brands2024/' 
+root                = '/prednet_Brands2024_git/' 
 
 # select model
 model = 'Kirubeswaran2023'
