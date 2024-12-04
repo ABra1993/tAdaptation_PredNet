@@ -58,8 +58,8 @@ def resize_video(input_file, output_file, target_width, target_height, target_fp
     print("Resized video saved successfully.")
 
 # define input and output file paths
-# datasets = ['WT_AMS', 'WT_VEN', 'WT_WL']
-datasets = ['WT_WL']
+# datasets = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']
+datasets = ['WT_AMS']
 
 fpss = [3, 6, 12]
 
@@ -69,7 +69,7 @@ for fps in fpss:
 
         print(dataset)
 
-        input_file = '/home/amber/OneDrive/datasets/' + dataset + '.mp4'
+        input_file = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
         output_file = '/home/amber/OneDrive/datasets/train/' + dataset + '_fps' + str(fps) + '.mp4'
 
         # Define target width and height for resizing

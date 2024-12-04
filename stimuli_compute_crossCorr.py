@@ -5,7 +5,7 @@ import random
 import yaml
 import cv2
 from sklearn.utils import resample
-from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
+# from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
 import scipy
 from sklearn.utils import resample
 import seaborn as sns
@@ -20,7 +20,7 @@ datasets_lbls       = ['KITTI', 'Amsterdam', 'Venice', 'Wild life']
 color               = ['#DDCC77', '#117733', '#88CCEE', '#882255']
 
 # sample
-n_frames = 30000
+n_frames = 25000
 
 # compute
 preload = False
@@ -38,7 +38,8 @@ if preload == False:
         CEandSC_values = np.zeros((n_frames, 2))
 
         # Define the path to the .mp4 video file
-        file_path = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
+        # file_path = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
+        file_path = '/home/amber/Documents/organize_stimuli/datasets/train/' + dataset + '.mp4'
 
         # import dataset
         cap = cv2.VideoCapture(file_path)
@@ -55,6 +56,8 @@ if preload == False:
         correlations = []
         count = 0
         while count < n_frames:
+
+            print(count)
 
             # Read the next frame
             ret, current_frame = cap.read()
@@ -86,5 +89,6 @@ if preload == False:
 
         # save array
         np.save(data_save + 'crossCorr_' + dataset, np.mean(correlations))
+        np.save(data_save + 'crossCorr_' + dataset + '_sample', correlations)
 
 

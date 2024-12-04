@@ -9,8 +9,7 @@ data_save       = '/home/amber/Documents/prednet_Brands2024/data/stimuli/img_sta
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']
 datasets_lbls       = ['KITTI', 'Amsterdam', 'Venice', 'Wild life']
-color               = ['#DDCC77', '#117733', '#88CCEE', '#882255']
-
+color               = ['#F6C141', '#4EB265', '#5289C7', '#DC050C']
 
 # initiate figure
 fig = plt.figure()
@@ -30,13 +29,18 @@ for iD, dataset in enumerate(datasets):
         print('Current dataset: ', dataset)
 
         # select data
-        data_current = np.load(data_save + 'crossCorr_' + dataset + '.npy')
+        data_current = np.load(data_save + 'crossCorr_' + dataset + '_sample.npy')
+
+        print(data_current)
 
         # compute spread
         data_mean   = np.mean(data_current)
+        data_sem    = np.std(data_current)
 
         # visualize
-        axs.bar(offset_iD[iD], data_mean, color=color[iD])
+        axs.plot([offset_iD[iD], offset_iD[iD]], [data_mean - data_sem, data_mean + data_sem], color=color[iD], zorder=-1)
+        axs.scatter(offset_iD[iD], data_mean, color=color[iD], edgecolor='white', s=160)
+        # axs.scatter(np.ones(len(data_current))*offset_iD[iD], data_current, color=color[iD], s=1, alpha=0.25)
 
 # adjust axes
 axs.tick_params(axis='both', labelsize=fontsize_tick)
