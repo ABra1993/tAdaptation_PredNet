@@ -15,4 +15,4 @@ Acces to the model weights and stimuli will be made availale upon publication.
 
 **Packages**
 
-The package lgnpy is adapted from [niklas-mueller](https://github.com/niklas-mueller/lgnpy.git)
+The *lgnpy* package is adapted from [niklas-mueller](https://github.com/niklas-mueller/lgnpy.git)
