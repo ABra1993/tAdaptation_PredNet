@@ -4,12 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.optimize import curve_fit
-
-from neural_data_visualize_utils import *
+from visualize_utils import *
 from __model_visualize_onepulse_utils import *
 
 # set root
-root        = '/home/amber/OneDrive/code/prednet_Brands/' 
+root        = '' ## ADD home directory
 
 # stimulus dataset
 dataset_stim = ['set1', 'set2']
@@ -19,7 +18,6 @@ model = 'Lotter2017'
 # model = 'Kirubeswaran2023'
 
 # training set
-training_set = 'random'
 training_set = 'KITTI'
 training_set = 'WT_AMS'
 training_set = 'WT_VEN'
@@ -27,13 +25,13 @@ training_set = 'WT_WL'
 
 # set directory's
 if model == 'Lotter2017':
-    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/'
-    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/onepulse/'
-    init                = 1
+    root_data       = '' ## ADD location of activations (can be obtained by __model_evaluate_Kirubeswaran2023.py or )
+    root_vis        = '' ## ADD location to store figures
+    init            = 1
 elif model == 'Kirubeswaran2023':
-    root_data       = '/prednet_Brands2024_git/data/model/Kirubeswaran2023/datasets/' + training_set + '/'
-    root_vis        = '/prednet_Brands2024_git/visualization/model/Kirubeswaran2023/datasets/' + training_set + '/'
-    init                = 5
+    root_data       = '' + training_set + '/' ## ADD location of activations
+    root_vis        = '' + training_set + '/' ## ADD location to store figures
+    init            = 5
 
 # set trained or untrained
 trained = True
@@ -64,19 +62,16 @@ population = None
 CEandSC_values = np.zeros((n_img, 2))
 for i, datasetstim in enumerate(dataset_stim):
     if i == 0:
-        CEandSC_values[:int(n_img/2)] = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + datasetstim + '.npy')
+        CEandSC_values[:int(n_img/2)] = np.load(root + '/img_statistics/' + datasetstim + '.npy')
     else:
-        CEandSC_values[int(n_img/2):] = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + datasetstim + '.npy')
+        CEandSC_values[int(n_img/2):] = np.load(root + '/img_statistics/' + datasetstim + '.npy')
 
 # plot settings
-# color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
-# color_layer         = ['#A6BE54', '#D1B541', '#E49C39', '#E67932']
-
 color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
 color_layer         = ['#69B190', '#549EB3', '#4E79C5', '#6F4C9B']
 
 # computations
-computation                = ['linear fit', 'log fit']
+computation         = ['linear fit', 'log fit']
 
 # fit curve for recovery of adaptation initial parameter values
 t1_plot     = np.linspace(min(tempCond), max(tempCond), 1000)
@@ -181,20 +176,27 @@ for iInit in range(init):
                 ratio_lin_log[iInit, iL, iImg] = dynamics_fit[iInit, iL, iImg, 0]/dynamics_fit[iInit, iL, iImg, 1]
 
 ######################## VISUALIZE
-# plot_broadband(data, start, tempCond, n_layer, n_img, range_trans, range_sust, trained, population, None, output_mode, color_tempCond, color_layer, root_data, root_vis)
+##################################
 
-# plot_dynamics(dynamics_lin, dynamics_log, metric, tempCond, t1_plot, n_layer, color_layer, n_img, init, computation, output_mode, root_vis)
-# plot_dynamics_metric(dynamics_fit, n_layer, computation, color_layer, n_img, init, output_mode, root_vis)
+# FIG 3A (bottom)
+plot_broadband(data, start, tempCond, n_layer, n_img, range_trans, range_sust, trained, population, None, output_mode, color_tempCond, color_layer, root_data, root_vis)
+
+# FIG 3D
+plot_dynamics(dynamics_lin, dynamics_log, metric, tempCond, t1_plot, n_layer, color_layer, n_img, init, computation, output_mode, root_vis)
+
+# FIG 3E
+plot_dynamics_metric(dynamics_fit, n_layer, computation, color_layer, n_img, init, output_mode, root_vis)
+
+# SUPP FIG 4B
 plot_regression(ratio_lin_log, ratio_trans_sust, n_layer, color_layer, n_img, init, model, root_vis)
 
-# plot_regression_CEandSC(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
-# plot_regression_CEandSC_L1(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
+# SUPP FIG 10
+plot_regression_CEandSC(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
 
-
-# ######################## STATISTICS
+# ######################## STATISTICS (optional)
 # stats_lin_log(n_layer, dynamics_fit)
 # stats_regression(ratio_lin_log, ratio_trans_sust)
 
-######################## SAVE
+######################## SAVE (optional)
 # np.save(root_data_save + 'ratio_lin_log_' + model + '_' + dataset, ratio_lin_log) 
 # np.save(root_data_save + 'ratio_trans_sust_' + model + '_' + dataset, ratio_trans_sust)

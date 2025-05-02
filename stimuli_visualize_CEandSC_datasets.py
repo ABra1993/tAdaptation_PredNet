@@ -4,9 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.optimize import curve_fit
-
-from neural_data_visualize_utils import *
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+
+# SCRIPT used to create plot SUPP FIG 6D
+
+root = '' ## ADD home directory
 
 # import values
 n_img = 500
@@ -19,7 +21,7 @@ color               = ['#F6C141', '#4EB265', '#5289C7', '#DC050C']
 # import
 CEandSC_values = np.zeros((len(datasets), n_img, 2))
 for iD, dataset in enumerate(datasets):
-    temp = np.load('/prednet_Brands2024_git/data/stimuli/img_statistics/' + dataset + '.npy')
+    temp = np.load(root + 'img_statistics/' + dataset + '.npy')
     CEandSC_values[iD, :, :] = temp[:n_img, :]
 
 # initiate figure
@@ -69,5 +71,5 @@ ax.set_ylim(-0.001, 0.008)
 
 # save figure
 plt.tight_layout()
-plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/stimuli/img_statistics/CEandSCvalues_datasets', dpi=300)
-plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/stimuli/img_statistics/CEandSCvalues_datasets.svg')
+plt.savefig('CEandSCvalues_datasets', dpi=300)
+plt.savefig('CEandSCvalues_datasets.svg')

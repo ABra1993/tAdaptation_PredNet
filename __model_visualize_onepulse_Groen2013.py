@@ -5,11 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.optimize import curve_fit
 
-from neural_data_visualize_utils import *
 from __model_visualize_onepulse_utils import *
 
 # set root
-root        = '/home/amber/OneDrive/code/prednet_Brands/' 
+root        = '' ## ADD home directory 
 
 # select model
 model = 'Lotter2017'
@@ -17,11 +16,11 @@ model = 'Lotter2017'
 
 # set directory's
 if model == 'Lotter2017':
-    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/Groen2013/'
-    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/onepulse_Groen2013/'
+    root_data       = '' ## ADD location of activations
+    root_vis        = '' ## ADD location to store figures
 elif model == 'Kirubeswaran2023':
-    root_data       = '/prednet_Brands2024_git/data/model/Kirubeswaran2023/'
-    root_vis        = '/prednet_Brands2024_git/visualization/model/Kirubeswaran2023/onepulse/'
+    root_data       = '' ## ADD location of activations
+    root_vis        = '' ## ADD location to store figures
 
 # set training data
 if model == 'Lotter2017':
@@ -57,16 +56,13 @@ population = None
 # import CE and SC values
 CEandSC_values = np.zeros((n_img, 2))
 
-CE = np.loadtxt('/home/amber/OneDrive/datasets/Groen2013/model_CE.txt', delimiter=',')
-SC = np.loadtxt('/home/amber/OneDrive/datasets/Groen2013/model_SC.txt', delimiter=',')
+CE = np.loadtxt(root + '/imgs_statistics/Groen2013/CE.txt', delimiter=',')
+SC = np.loadtxt(root + '/imgs_statistics/Groen2013/SC.txt', delimiter=',')
 
 CEandSC_values[:, 0] = CE
 CEandSC_values[:, 1] = SC
 
 # plot settings
-# color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
-# color_layer         = ['#A6BE54', '#D1B541', '#E49C39', '#E67932']
-
 color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
 color_layer         = ['#69B190', '#549EB3', '#4E79C5', '#6F4C9B']
 
@@ -115,9 +111,7 @@ for iL in range(n_layer):
             ratio_trans_sust[iL, iImg] = trans/sust
 
 ####################### VISUALIZE
-# plot_regression_CEandSC(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
-plot_regression_CEandSC_L1(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
+#################################
 
-######################## SAVE
-# np.save(root_data_save + 'ratio_lin_log_' + model + '_' + dataset, ratio_lin_log) 
-# np.save(root_data_save + 'ratio_trans_sust_' + model + '_' + dataset, ratio_trans_sust)
+# FIG 8D
+plot_regression_CEandSC_L1(ratio_lin_log, ratio_trans_sust, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)

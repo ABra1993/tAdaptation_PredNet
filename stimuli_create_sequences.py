@@ -4,6 +4,8 @@ from PIL import Image
 import random
 from sklearn.utils import resample
 
+## SCRIPT used to create the image sequences (example sequence is shown in SUPP FIG 1)
+
 # input shape for PredNet
 input_shape = [128, 160, 3]
 
@@ -11,13 +13,13 @@ input_shape = [128, 160, 3]
 dataset         = 'set1'
 
 # select directory to save stimuli
-root = '/prednet_Brands2024_git/'
+root = ''                                                                       ## ADD home directory
 if input_shape[0] == 120:
-    root_stim   = '/prednet_Brands2024_git/data/stimuli/120_160/' + dataset + '/'
-    root_vis    = root + 'visualization/stimuli/120_160/' + dataset + '/'
+    root_stim   = '/120_160/' + dataset + '/'                                   ## ADD directory containing images
+    root_vis    = root + 'visualization/stimuli/120_160/' + dataset + '/'       ## ADD directory to save figures
 elif input_shape[0] == 128:
-    root_stim   = '/prednet_Brands2024_git/data/stimuli/128_160/' + dataset + '/'
-    root_vis    = root + '/visualization/stimuli/128_160/' + dataset + '/'
+    root_stim   = '/128_160/' + dataset + '/'                                   ## ADD directory containing images
+    root_vis    = root + '/visualization/stimuli/128_160/' + dataset + '/'      ## ADD directory to save figures
 
 # categories
 cats = ['bodies', 'buildings', 'faces', 'objects', 'scenes', 'scrambled']
@@ -108,32 +110,17 @@ if compute_onepulse:
             # adjust axes
             axs[iT, t].axis('off')
 
-    # save
+    # save figure
     plt.savefig(root_vis + 'imgs_onepulse', dpi=300, bbox_inches='tight')
     plt.close()
-
-    # # plot stream for pytorch implementation
-    # with open('/home/amber/OneDrive/code/prednet_Kirubeswaran2023/prednet_in_pytorch/imgs/test.txt', 'w') as f:
-    #     for t in range(nt):
-            
-    #         # file path
-    #         path = '/home/amber/OneDrive/code/prednet_Kirubeswaran2023/prednet_in_pytorch/imgs/' + str(t+1) + '.jpg'
-            
-    #         # visualize
-    #         fig = plt.figure()
-    #         plt.imshow(np.transpose(imgs_onepulse[-1, idx, t, :, :, :], (1, 2, 0)))
-    #         plt.savefig(path)
-    #         plt.close()
-
-    #         f.writelines(path + '\n')
 
     # save data
     plt.tight_layout()
     np.save(root_stim + '/stimuli_onepulse', imgs_onepulse)
 
-############################################################TWOPULSE-REP
+########################################################### TWOPULSE-REP
 ########################################################################
-duration_twopulse = 8
+duration_twopulse = 1
 
 if compute_twopulse_repeat:
 
@@ -166,7 +153,7 @@ if compute_twopulse_repeat:
             # adjust axes
             axs[iT, t].axis('off')
 
-    # save
+    # save figure
     plt.savefig(root_vis + 'imgs_twopulse_repeat_8_duration', dpi=300, bbox_inches='tight')
     plt.close()
 
@@ -224,13 +211,13 @@ if compute_twopulse_nonrepeat_same:
             # adjust axes
             axs[iT, t].axis('off')
 
-    # save
-    plt.savefig(root_vis + 'imgs_twopulse_nonrepeat_same_8_duration', dpi=300, bbox_inches='tight')
+    # save figure
+    plt.savefig(root_vis + 'imgs_twopulse_nonrepeat_same', dpi=300, bbox_inches='tight')
     plt.close()
 
     # save data
     plt.tight_layout()
-    np.save(root_stim + 'stimuli_twopulse_nonrepeat_same_8_duration', imgs_twopulse_nonrepeat_same)
+    np.save(root_stim + 'stimuli_twopulse_nonrepeat_same', imgs_twopulse_nonrepeat_same)
 
 ##################################################### TWOPULSE-NREP-DIFF
 ########################################################################
@@ -273,10 +260,10 @@ if compute_twopulse_nonrepeat_diff:
             # adjust axes
             axs[iT, t].axis('off')
 
-    # save
-    plt.savefig(root_vis + 'imgs_twopulse_nonrepeat_diff_8_duration', dpi=300, bbox_inches='tight')
+    # save figure
+    plt.savefig(root_vis + 'imgs_twopulse_nonrepeat_diff', dpi=300, bbox_inches='tight')
     plt.close()
 
     # save data
     plt.tight_layout()
-    np.save(root_stim + 'stimuli_twopulse_nonrepeat_diff_8_duration', imgs_twopulse_nonrepeat_diff)
+    np.save(root_stim + 'stimuli_twopulse_nonrepeat_diff', imgs_twopulse_nonrepeat_diff)

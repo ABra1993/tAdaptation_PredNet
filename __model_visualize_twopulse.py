@@ -5,11 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.optimize import curve_fit
 
-from neural_data_visualize_utils import *
+from visualize_utils import *
 from __model_visualize_twopulse_utils import *
-
-# set root
-root        = '/home/amber/OneDrive/code/prednet_Brands2024/' 
 
 # stimulus dataset
 dataset_stim = ['set1', 'set2']
@@ -18,16 +15,17 @@ dataset_stim = ['set1', 'set2']
 model = 'Lotter2017'
 
 # set directory's
+root        = '' ## ADD HOME DIRECTORY
 if model == 'Lotter2017':
-    root_data       = '/prednet_Brands2024_git/data/model/Lotter2017/'
-    root_vis        = '/prednet_Brands2024_git/visualization/model/Lotter2017/twopulse/'
+    root_data       = '' ## ADD location of activations
+    root_vis        = '' ## ADD location to store figures
 
 # set training data
 if model == 'Lotter2017':
     dataset = 'KITTI'
 
-trials = np.array(['twopulse_repeat', 'twopulse_nonrepeat_same'])
-trials_lbls = ['repetition', 'alternation (within)']
+trials          = np.array(['twopulse_repeat', 'twopulse_nonrepeat_same'])
+trials_lbls     = ['repetition', 'alternation (within)']
 
 # set trained or untrained
 trained = True
@@ -61,15 +59,11 @@ population = None
 CEandSC_values = np.zeros((n_img, 2))
 for i, datasetstim in enumerate(dataset_stim):
     if i == 0:
-        CEandSC_values[:int(n_img/2)] = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + datasetstim + '.npy')
+        CEandSC_values[:int(n_img/2)] = np.load(root + 'img_statistics/' + datasetstim + '.npy')
     else:
-        CEandSC_values[int(n_img/2):] = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + datasetstim + '.npy')
-
+        CEandSC_values[int(n_img/2):] = np.load(root + 'img_statistics/' + datasetstim + '.npy')
 
 # plot settings
-# color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
-# color_layer         = ['#A6BE54', '#D1B541', '#E49C39', '#E67932']
-
 color_tempCond      = ['#9BD2E1', '#81C4E7', '#7EB2E4', '#9398D2', '#9D7DB2', '#906388']
 color_layer         = ['#69B190', '#549EB3', '#4E79C5', '#6F4C9B']
 color_trial         = ['dodgerblue', np.array([212, 170, 0])/255]
@@ -167,7 +161,7 @@ for iL in range(n_layer):
 
                     # savefig
                     plt.legend()
-                    plt.savefig(root+'visualization/model/compute_recovery')
+                    plt.savefig(root + 'visualization/model/compute_recovery')
 
             # compute line fit
             for iImg in range(n_img):
@@ -183,14 +177,15 @@ for iL in range(n_layer):
         adaptation_avg[iT, iL, :] = np.mean(metric[iT, iL, :, :], 0)
 
 ######################## VISUALIZE
-# plot regression
-# plot_broadband_all(data, trials_lbls, start, tempCond, duration, n_layer, n_img, population, dataset, output_mode, color_trial, root_data, root_vis)
+
+# FIG 4A (bottom) 
 plot_broadband(data, None, None, trials_lbls, start, tempCond, duration, n_img, color_trial, root_vis)
 
+# FIG 4D
 plot_dynamics(dynamics_log, adaptation_avg, metric, tempCond, trials, t1_plot, n_layer, color_layer, color_trial, n_img, computation, output_mode, model, root_vis)
+
+# FIG 4E
 plot_dynamics_metric(dynamics_log, adaptation_avg, metric, tempCond, trials, t1_plot, n_layer, color_layer, color_trial, n_img, computation, output_mode, model, root_vis)
 
-# plot_regression_CEandSC(ratio_lin_log, metric, CEandSC_values, n_layer, color_layer, n_img, model, root_vis)
-
-######################## STATISTICS
+######################## STATISTICS (optional)
 stats_trial(metric, n_layer)

@@ -6,11 +6,17 @@ import seaborn as sns
 from scipy.optimize import curve_fit
 from scipy.signal import savgol_filter
 from scipy.ndimage import gaussian_filter1d
-
-from neural_data_visualize_utils import *
 from __model_visualize_onepulse_utils import *
-
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+
+###### CREATE FIGURE SFIG6A and SFIG8
+##################################### 
+
+# set root
+root            = '' ## ADD home directory
+data_save       = '' ## ADD CE and SC values (for plotting cross-correlation)
+
+##################################### 
 
 def subsample(data, sample_size):
     # Desired downsampled length
@@ -27,10 +33,6 @@ def subsample(data, sample_size):
         downsampled_sequence = downsampled_sequence[:sample_size]
 
     return downsampled_sequence
-
-# set root
-root            = '/prednet_Brands2024_git/'
-data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/' # for plotting cross-correlation
 
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']
@@ -187,8 +189,8 @@ axins.set_ylabel(r'$\mathit{AutoCorr}$', fontsize=10)
 # save figure
 plt.tight_layout()
 # plt.legend(frameon=False)
-plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_dataset', dpi=300)
-plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_dataset.svg')
+plt.savefig('losses_dataset', dpi=300)
+plt.savefig('losses_dataset.svg')
 
 #####################################################################################
 #####################################################################################
@@ -279,8 +281,8 @@ for iDM, dataset_manipulation in enumerate(datasets_manipulation):
         # save figure
         plt.tight_layout()
         if i == 0:
-            plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_fps_' + dataset_manipulation, dpi=300)
-            plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_fps_'  + dataset_manipulation + '.svg')
+            plt.savefig('losses_fps_' + dataset_manipulation, dpi=300)
+            plt.savefig('losses_fps_'  + dataset_manipulation + '.svg')
         else:
-            plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_loss_' + dataset_manipulation, dpi=300)
-            plt.savefig('/home/amber/OneDrive/code/prednet_Brands2024/visualization/model/Kirubeswaran2023/datasets/losses/losses_loss_' + dataset_manipulation + '.svg')
+            plt.savefig('losses_loss_' + dataset_manipulation, dpi=300)
+            plt.savefig('losses_loss_' + dataset_manipulation + '.svg')

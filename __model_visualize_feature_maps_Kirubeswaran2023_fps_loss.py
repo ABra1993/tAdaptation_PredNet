@@ -10,6 +10,14 @@ from distutils.util import strtobool
 import time
 from datetime import datetime
 
+###### CREATE FIGURE SFIG9
+
+# define root stimuli
+root        = '' ## ADD home directory
+root_stim   = '' ## ADD images
+
+########################## 
+
 # get the start time
 st = time.time()
 
@@ -23,20 +31,16 @@ import torchvision.utils as vutils
 from torch.utils.tensorboard import SummaryWriter
 from torchviz import make_dot
 
-# other scripts
-from model_train_Kirubeswaran2023_utils_corr_wise import CorrWise
+# # other scripts
+# from model_train_Kirubeswaran2023_utils_corr_wise import CorrWise
 
-from torch.utils.data import Dataset, DataLoader
-from model_train_Kirubeswaran2023_utils_dataloader import VideoDataset
-from prednet_Kirubeswaran2023 import *
+# from torch.utils.data import Dataset, DataLoader
+from __model_train_utils import VideoDataset
+from prednet_pyTorch import *
 
 # set device
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
-
-# define root stimuli
-root        = '/home/amber/OneDrive/code/prednet_Brands2024/'
-root_stim   = '/home/amber/Documents/prednet_Brands2024/data/stimuli/128_160/'
 
 # training dataset (model init.)
 # train_set = 'KITTI'
@@ -92,7 +96,7 @@ def main():
     for train_set in train_sets:
 
         # Define the path to the .mp4 video file
-        file_path = '/home/amber/OneDrive/datasets/train/' + train_set + '.mp4'
+        file_path = train_set + '.mp4'
 
         # Create a VideoDataset instance
         video_dataset = VideoDataset(False, file_path, sequence_length, w, h, c)
@@ -186,7 +190,7 @@ def main():
 
                 # save figure
                 # plt.tight_layout()
-                plt.savefig('visualization/model/Kirubeswaran2023/datasets/feature_maps_' + analyse + '/' + train_set + str(sample_idx+1), bbox_inches='tight')
+                plt.savefig('feature_maps_' + analyse + '/' + train_set + str(sample_idx+1), bbox_inches='tight')
                 plt.close()
 
 

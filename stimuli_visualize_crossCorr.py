@@ -2,9 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+## values presented in SUPP FIG 6B
+
 # select directory to save stimuli
-root            = '/prednet_Brands2024_git/'
-data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
+root            = '' ## ADD home directory
+data_save       = '' ## ADD directory to save figure
 
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']

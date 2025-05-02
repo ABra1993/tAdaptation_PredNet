@@ -5,14 +5,14 @@ import random
 import yaml
 import cv2
 from sklearn.utils import resample
-from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
+from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics # adapted from https://github.com/niklas-mueller/lgnpy.git
 import scipy
 from sklearn.utils import resample
 
 # select directory to save stimuli
-root            = '/prednet_Brands2024_git/'
-config_path     = '/prednet_Brands2024_git/lgnpy/lgnpy/CEandSC/default_config.yml'
-data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
+root            = '' ## ADD home directory
+config_path     = 'lgnpy/lgnpy/CEandSC/default_config.yml'
+data_save       = '' ## ADD directory to store SC and CE values
 
 # set dataset
 # datasets = ['KITTI', 'WT_AMS', 'WT_WL']
@@ -39,7 +39,7 @@ if preload == False:
     print(config)
 
     # se threshold
-    threshold_lgn = scipy.io.loadmat('/home/amber/OneDrive/code/prednet_Brands2024/lgnpy/ThresholdLGN.mat')['ThresholdLGN']
+    threshold_lgn = scipy.io.loadmat(root + 'lgnpy/ThresholdLGN.mat')['ThresholdLGN']
 
     # retrieve random sample
     idxs = np.zeros((len(datasets), n_img), dtype=int)
@@ -55,7 +55,7 @@ if preload == False:
         CEandSC_values = np.zeros((n_img, 2))
 
         # Define the path to the .mp4 video file
-        file_path = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
+        file_path = '' + dataset + '.mp4' ## ADD path to video file
 
         # import dataset
         cap = cv2.VideoCapture(file_path)

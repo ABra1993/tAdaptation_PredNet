@@ -2,11 +2,12 @@ import os
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 from scipy.optimize import curve_fit
-
-from neural_data_visualize_utils import *
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+
+# SCRIPT used to create FIG8A and FIG8C
 
 def getImage(path):
     return OffsetImage(plt.imread(path), zoom=.01, alpha = 1)
@@ -18,8 +19,8 @@ root        = '/prednet_Brands2024_git/'
 n_img = 1600
 
 # set directory's
-root            = 'prednet_Brands2024_git'
-root_data       = 'datasets/Groen2013/'
+root            = '' ## ADD home directory
+root_data       = '' ## ADD directory containing the stimuli
 
 # import CE and SC values
 CE = np.loadtxt('datasets/Groen2013/model_CE.txt', delimiter=',')

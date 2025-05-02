@@ -4,19 +4,19 @@ from PIL import Image
 import random
 import yaml
 from sklearn.utils import resample
-from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
+from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics  # adapted from https://github.com/niklas-mueller/lgnpy.git
 import scipy
 
 # input shape for PredNet
 input_shape = [128, 160, 3]
 if input_shape[0] == 120:
-    data_save = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
+    data_save = '' ## ADD directory to store SC and CE values
 elif input_shape[0] == 128:
-    data_save = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
+    data_save = '' ## ADD directory to store SC and CE values
 
 # select directory to save stimuli
-root            = '/prednet_Brands2024_git/'
-config_path     = '/prednet_Brands2024_git/lgnpy/lgnpy/CEandSC/default_config.yml'
+root            = '' ## ADD home directory
+config_path     = 'lgnpy/lgnpy/CEandSC/default_config.yml'
 
 # categories
 cats            = ['bodies', 'buildings', 'faces', 'objects', 'scenes', 'scrambled']
@@ -36,7 +36,7 @@ with open(config_path, 'r') as f:
 print(config)
 
 # se threshold
-threshold_lgn = scipy.io.loadmat('/home/amber/OneDrive/code/prednet_Brands2024/lgnpy/ThresholdLGN.mat')['ThresholdLGN']
+threshold_lgn = scipy.io.loadmat('lgnpy/ThresholdLGN.mat')['ThresholdLGN']
 
 # compute values
 for iImg in range(img_n):
@@ -69,21 +69,4 @@ for iImg in range(img_n):
 
 # save array
 print(CEandSC_values)
-# np.save(data_save + dataset, CEandSC_values)
-
-
-# CEandSC_values = np.load('/home/amber/Documents/prednet_Brands2024/data/stimuli/img_statistics/' + dataset_stim + '.npy')
-
-# print(CEandSC_values)
-
-# idx_min = np.argmin(CEandSC_values[:, 0])
-# print('Min (CE):', int(idx_min+1+96))
-
-# idx_max = np.argmax(CEandSC_values[:, 0])
-# print('Max (CE): ', int(idx_max+1+96))
-
-# idx_min = np.argmin(np.delete(CEandSC_values[:, 1], 10))
-# print('Min (SC):', int(idx_min+1+96))
-
-# idx_max = np.argmax(np.delete(CEandSC_values[:, 1], 10))
-# print('Max (SC): ', int(idx_max+1+96))
+np.save(data_save + dataset, CEandSC_values)

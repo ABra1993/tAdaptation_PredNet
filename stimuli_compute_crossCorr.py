@@ -5,14 +5,16 @@ import random
 import yaml
 import cv2
 from sklearn.utils import resample
-# from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
+from lgnpy.lgnpy.CEandSC.lgn_statistics import lgn_statistics
 import scipy
 from sklearn.utils import resample
 import seaborn as sns
 
+## COMPUTING values presented in SUPP FIG 6B
+
 # select directory to save stimuli
-root            = '/prednet_Brands2024_git/'
-data_save       = '/prednet_Brands2024_git/data/stimuli/img_statistics/'
+root            = '' ## ADD home directory
+data_save       = '' ## ADD directory to save cross-correlation values
 
 # datasets
 datasets            = ['KITTI', 'WT_AMS', 'WT_VEN', 'WT_WL']
@@ -38,8 +40,7 @@ if preload == False:
         CEandSC_values = np.zeros((n_frames, 2))
 
         # Define the path to the .mp4 video file
-        # file_path = '/home/amber/OneDrive/datasets/train/' + dataset + '.mp4'
-        file_path = '/home/amber/Documents/organize_stimuli/datasets/train/' + dataset + '.mp4'
+        file_path = '' + dataset + '.mp4' ## ADD directory to video
 
         # import dataset
         cap = cv2.VideoCapture(file_path)
