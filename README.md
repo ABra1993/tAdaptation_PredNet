@@ -6,3 +6,7 @@ Required pacakges for the analysis on the pretrained PredNet (Lotter, Nature, 20
 
 **References**
 Lotter, W., Kreiman, G., & Cox, D. (2020). A neural network trained for prediction mimics diverse features of biological neurons and perception. Nature machine intelligence, 2(4), 210-219.
+
+
+**Data availability**
+Acces to the model weights and stimuli will be made availale upon publication.
