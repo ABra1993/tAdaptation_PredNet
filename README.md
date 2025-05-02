@@ -12,3 +12,7 @@ Lotter, W., Kreiman, G., & Cox, D. (2020). A neural network trained for predicti
 **Data availability**
 
 Acces to the model weights and stimuli will be made availale upon publication.
+
+**Packages**
+
+The package lgnpy is adapted from [niklas-mueller](https://github.com/niklas-mueller/lgnpy.git)
